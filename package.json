@@ -1,0 +1,106 @@
+{
+  "name": "code-parcel",
+  "displayName": "Code Parcel",
+  "description": "Select only the project files you need and combine their contents and structure into one AI-ready Markdown snapshot.",
+  "version": "0.1.0",
+  "publisher": "binaryhandshake",
+  "homepage": "https://binaryhandshake.com/code-parcel/",
+  "icon": "images/icon.png",
+  "galleryBanner": {
+    "color": "#192536",
+    "theme": "dark"
+  },
+  "license": "SEE LICENSE IN LICENSE",
+  "engines": {
+    "vscode": "^1.90.0"
+  },
+  "categories": [
+    "Other"
+  ],
+  "keywords": [
+    "project snapshot",
+    "code snapshot",
+    "codebase",
+    "AI context",
+    "LLM context",
+    "code export",
+    "selected files",
+    "file selection",
+    "combine files",
+    "source code",
+    "project structure",
+    "markdown",
+    "Markdown export",
+    "ChatGPT",
+    "Claude",
+    "Gemini"
+  ],
+  "activationEvents": [
+    "onStartupFinished"
+  ],
+  "main": "./out/extension.js",
+  "scripts": {
+    "compile": "tsc -p ./",
+    "vscode:prepublish": "npm run compile",
+    "package": "vsce package --allow-missing-repository"
+  },
+  "dependencies": {
+    "minimatch": "^11.0.3"
+  },
+  "devDependencies": {
+    "@types/node": "^20.17.0",
+    "@types/vscode": "^1.90.0",
+    "@vscode/vsce": "^2.32.0",
+    "typescript": "^5.7.2"
+  },
+  "contributes": {
+    "views": {
+      "explorer": [
+        {
+          "id": "codeParcel.tree",
+          "name": "Code Parcel"
+        }
+      ]
+    },
+    "commands": [
+      {
+        "command": "codeParcel.generate",
+        "title": "Code Parcel: Generate Snapshot",
+        "icon": "$(file-code)"
+      },
+      {
+        "command": "codeParcel.refresh",
+        "title": "Code Parcel: Refresh",
+        "icon": "$(refresh)"
+      },
+      {
+        "command": "codeParcel.settings",
+        "title": "Code Parcel: Open Settings"
+      },
+      {
+        "command": "codeParcel.outputSettings",
+        "title": "Code Parcel: Configure Snapshot Output",
+        "icon": "$(settings-gear)"
+      }
+    ],
+    "menus": {
+      "view/title": [
+        {
+          "command": "codeParcel.generate",
+          "when": "view == codeParcel.tree",
+          "group": "navigation"
+        },
+        {
+          "command": "codeParcel.refresh",
+          "when": "view == codeParcel.tree",
+          "group": "navigation"
+        },
+        {
+          "command": "codeParcel.outputSettings",
+          "when": "view == codeParcel.tree",
+          "group": "navigation"
+        }
+      ]
+    }
+  }
+}

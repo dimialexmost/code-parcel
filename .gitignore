@@ -1,0 +1,12 @@
+# Local VS Code settings
+.vscode/
+
+# Dependencies
+node_modules/
+
+# Build and packaging output
+out/
+*.vsix
+
+# Generated snapshots
+*-output.md
